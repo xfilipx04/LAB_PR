@@ -1,0 +1,21 @@
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pr-web-server
+    environment:
+      PORT: 8000
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./:/app
+    command: ["python", "server.py", "/app/public"]
+
+  client:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["python", "client.py", "server", "8000", "/app/public"]
+    depends_on:
+      - server
