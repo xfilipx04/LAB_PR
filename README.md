@@ -8,7 +8,7 @@ During this laboratory work I developed a simple HTTP file server in Python, whe
 * The *server.py* file handles incoming HTTP requests, retrieves the requested files from the specified directory, and sends them back to the client.
 * The *client.py* connects to the server, sends file requests, and displays or saves in the *downnloads* folder the received content based on the file type.
 
-    ![contents.png](public/report_pics/contents.png)
+    ![components.png](public/report_pics/components.png)
 
 ## Dockerfile
 The *Dockerfile* makes sure to set a lightweight Python 3.12 environment, copies the server and client scripts into the container’s /app directory, sets it as the working directory, and exposes port 8000 so server.py/client.py can use it.
@@ -47,13 +47,6 @@ services:
 ```
 
 ## Running the project
-We can run the project locally using the command:
-```python
-python3 server.py <path_to_directory>
-```
-In the following picture you can see an example of how i can run the project locally with the *root* directory of the project as an argument:
-
-
 
 We can run it using docker with the following command:
 ```
